@@ -1,0 +1,12 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "A simple weather app using Node.js and OpenWeatherMap API",
+  "main": "weather.js",
+  "scripts": {
+    "start": "node api/weather.js"
+  },
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
