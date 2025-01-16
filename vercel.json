@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/weather.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/", "dest": "/api/weather" }
+    ]
+  }
+  
