@@ -13,7 +13,6 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-
     <style>
       * {
         padding: 0;
@@ -207,11 +206,68 @@
         text-align: center;
         color: grey;
       }
+      /* Style for the input field */
+      .city-input {
+        width: 60%; /* Adjust the width as needed */
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        color: #333;
+        background-color: #fff;
+        transition: border-color 0.3s;
+      }
+
+      .city-input:focus {
+        border-color: #4a90e2; /* Focus color */
+        outline: none;
+      }
+
+      /* Optional: Add some styling for the button next to the input */
+      .city-button {
+        padding: 10px 20px;
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: background-color 0.3s;
+      }
+
+      .city-button:hover {
+        background-color: #357abd;
+      }
+
+      /* Optional: Style the form to center the input and button */
+      .city-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+      }
     </style>
     <title>Weather App</title>
   </head>
   <body>
     <div class="box">
+
+      <!-- Search Form -->
+      <form action="/" method="GET" id="cityForm">
+        <div class="city-form">
+          <input
+            type="text"
+            name="city"
+            id="cityInput"
+            class="city-input"
+            placeholder="Enter city"
+          />
+          <button type="submit" class="city-button">Search</button>
+        </div>
+      </form>
+
       <div class="wave -one"></div>
       <div class="wave -two"></div>
       <div class="wave -three"></div>
@@ -222,8 +278,8 @@
 
       <div class="info">
         <h2 class="location">
-          <i class="fas fa-street-view" style="color: #fff"></i
-          >{%location%},{%country%}
+          <i class="fas fa-street-view" style="color: #fff"></i>
+          <span id="location">{%location%},{%country%}</span>
         </h2>
         <p id="date">WED | nov 23 | 10:49AM</p>
         <h1 class="temp">{%tempval%}&deg;C</h1>
@@ -231,6 +287,8 @@
           Min {%tempmin%}&deg;C | Max {%tempmax%}&deg;C
         </h3>
       </div>
+
+      
     </div>
 
     <script>
@@ -239,7 +297,7 @@
 
       const tempStatus = "{%tempstatus%}";
 
-      //condition to check sunny or cloudy
+      // Condition to check sunny or cloudy
       if (tempStatus == "Sunny") {
         weathercon.innerHTML =
           "<i class='fas  fa-sun' style='color: #eccc68;'></i>";
